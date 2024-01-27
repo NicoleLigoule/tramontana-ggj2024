@@ -1,10 +1,8 @@
-extends Node2D
+extends Node
 
-#export var mesh_path
-var mesh_instance
-
+@export var my_number = 5
+# Called when the node enters the scene tree for the first time.
 func _ready():
-#	mesh_instance = get_node(mesh_path)
 	pass # Replace with function body.
 
 
