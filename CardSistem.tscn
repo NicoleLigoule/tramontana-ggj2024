@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ofcrdkqmg87e"]
+
+[ext_resource type="Script" path="res://CardSistem.gd" id="1_lo8wo"]
+[ext_resource type="Script" path="res://testScript.gd" id="2_hj4rq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5s88r"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rx31m"]
+
+[node name="CardHandlingSistem" type="Node2D"]
+script = ExtResource("1_lo8wo")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.447059, 0.556863, 0.184314, 1)
+self_modulate = Color(0.588235, 0.423529, 0.192157, 1)
+texture_filter = 1
+position = Vector2(25.25, 18.75)
+scale = Vector2(51.5, 38.5)
+mesh = SubResource("QuadMesh_5s88r")
+texture = SubResource("ImageTexture_rx31m")
+script = ExtResource("2_hj4rq")
