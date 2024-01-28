@@ -10,7 +10,7 @@ var smile : RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	node = get_node("Spech_sistem/RichTextLabel")
+	node = get_node("Speech_system/RichTextLabel")
 	node.visible_ratio = 0
 	ratio= self.get_meta("ratio_visible_text")
 	
