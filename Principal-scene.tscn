@@ -1,0 +1,189 @@
+[gd_scene load_steps=17 format=3 uid="uid://ofcrdkqmg87e"]
+
+[ext_resource type="Script" path="res://Scripts/CardSistem.gd" id="1_u0xou"]
+[ext_resource type="Texture2D" uid="uid://dssemie0ctvqu" path="res://Assets/Visuals/FONDO_PARTIDA.png" id="2_xvmpb"]
+[ext_resource type="Script" path="res://Scripts/Director.gd" id="3_dq6u7"]
+[ext_resource type="Script" path="res://Scripts/Table.gd" id="4_gl1bo"]
+[ext_resource type="Texture2D" uid="uid://b7w27v7er2hpl" path="res://Assets/Visuals/MARCO_BUFÓN_PARTIDA.png" id="5_0unix"]
+[ext_resource type="Theme" uid="uid://bujw6y5xqklmq" path="res://Themes/Button_theme.tres" id="6_sllym"]
+[ext_resource type="Script" path="res://Scripts/Mood_System.gd" id="7_dnijk"]
+[ext_resource type="Texture2D" uid="uid://dj2r8lhu4mfx8" path="res://Assets/Visuals/edited_MARCO_REY_PARTIDA-NEGACIÓN.png" id="8_4xe7b"]
+[ext_resource type="Texture2D" uid="uid://ckpomvnddsov0" path="res://Assets/Visuals/edited_MARCO_REY_PARTIDA-APROBACIÓN.png" id="9_pvf2n"]
+[ext_resource type="Texture2D" uid="uid://cqpmft8mdoyop" path="res://Assets/Visuals/MARCO_PREGUNTAS_PARTIDA-1.png" id="10_jjtu7"]
+[ext_resource type="FontFile" uid="uid://dv2jqif6rj6fj" path="res://Assets/BLKCHCRY.TTF" id="11_al4ol"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5s88r"]
+
+[sub_resource type="GDScript" id="GDScript_3uno3"]
+script/source = "extends MeshInstance2D
+
+var mesh_instance
+# Called when the node enters the scene tree for the first time.
+func _ready():	
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	# modify the transform
+	#self.transform.origin.x += 1  # move the mesh instance to the right by 1 unit per second
+	#self.transform.origin.y += 1  # move the mesh instance up by 1 unit per second
+
+	pass
+"
+
+[sub_resource type="QuadMesh" id="QuadMesh_ifrcs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_c3j2h"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1qhbj"]
+
+[node name="CardHandlingSistem" type="Node"]
+script = ExtResource("1_u0xou")
+
+[node name="Background" type="MeshInstance2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_5s88r")
+texture = ExtResource("2_xvmpb")
+script = SubResource("GDScript_3uno3")
+
+[node name="Director" type="Node" parent="."]
+script = ExtResource("3_dq6u7")
+
+[node name="Timer" type="Timer" parent="Director"]
+process_callback = 0
+wait_time = 120.0
+one_shot = true
+
+[node name="Table" type="Node" parent="Director"]
+script = ExtResource("4_gl1bo")
+
+[node name="Card_tableBG" type="MeshInstance2D" parent="Director/Table"]
+position = Vector2(640, 360)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_ifrcs")
+texture = ExtResource("5_0unix")
+
+[node name="Carta" type="Node2D" parent="Director/Table"]
+position = Vector2(334, 520)
+
+[node name="Card" type="Button" parent="Director/Table/Carta"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 83.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("6_sllym")
+text = "voluptate"
+
+[node name="Carta2" type="Node2D" parent="Director/Table"]
+position = Vector2(584, 520)
+
+[node name="Card2" type="Button" parent="Director/Table/Carta2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 84.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("6_sllym")
+text = "The game"
+
+[node name="Carta3" type="Node2D" parent="Director/Table"]
+position = Vector2(796, 520)
+
+[node name="Card3" type="Button" parent="Director/Table/Carta3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 84.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("6_sllym")
+text = "The game"
+
+[node name="Mood_System" type="Node" parent="Director"]
+script = ExtResource("7_dnijk")
+metadata/ratio_visible_text = 0.5
+
+[node name="angry_face" type="MeshInstance2D" parent="Director/Mood_System"]
+position = Vector2(927, 217)
+scale = Vector2(311.681, -333.044)
+mesh = SubResource("QuadMesh_c3j2h")
+texture = ExtResource("8_4xe7b")
+
+[node name="happy_face" type="MeshInstance2D" parent="Director/Mood_System"]
+position = Vector2(926, 217)
+scale = Vector2(307.877, -335.695)
+mesh = SubResource("QuadMesh_c3j2h")
+texture = ExtResource("9_pvf2n")
+
+[node name="smile" type="RichTextLabel" parent="Director/Mood_System"]
+offset_left = 825.0
+offset_top = 118.0
+offset_right = 888.0
+offset_bottom = 184.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 26
+text = "
+😆"
+
+[node name="slight_smile" type="RichTextLabel" parent="Director/Mood_System"]
+offset_left = 825.0
+offset_top = 118.0
+offset_right = 888.0
+offset_bottom = 184.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 26
+text = "
+🙂"
+
+[node name="Speech_system" type="Node" parent="Director/Mood_System"]
+
+[node name="Speech_bg" type="MeshInstance2D" parent="Director/Mood_System/Speech_system"]
+position = Vector2(640, 360)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_1qhbj")
+texture = ExtResource("10_jjtu7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Director/Mood_System/Speech_system"]
+anchors_preset = -1
+anchor_left = 0.143
+anchor_top = 0.079
+anchor_right = 0.584
+anchor_bottom = 0.536389
+offset_left = 64.96
+offset_top = 31.12
+offset_right = -69.5201
+offset_bottom = -41.2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("11_al4ol")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Lorem ipsum dolor sit amet, consectetur___________,[/center]"
+tab_size = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Director/Table/Carta/Card" to="Director/Table" method="_on_card_pressed"]
+[connection signal="pressed" from="Director/Table/Carta2/Card2" to="Director/Table" method="_on_card_2_pressed"]
+[connection signal="pressed" from="Director/Table/Carta3/Card3" to="Director/Table" method="_on_card_2_pressed"]
