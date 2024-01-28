@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8uwustfsvqrh"
-path="res://.godot/imported/Screenshot 2024-01-27 160346.png-93b08b980784a7b5aa96873cdb1160fd.ctex"
+uid="uid://cqpmft8mdoyop"
+path="res://.godot/imported/MARCO_PREGUNTAS_PARTIDA-1.png-83c91a60d897ca0bdf6f9a5daf42d812.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visuals/Screenshot 2024-01-27 160346.png"
-dest_files=["res://.godot/imported/Screenshot 2024-01-27 160346.png-93b08b980784a7b5aa96873cdb1160fd.ctex"]
+source_file="res://Assets/Visuals/MARCO_PREGUNTAS_PARTIDA-1.png"
+dest_files=["res://.godot/imported/MARCO_PREGUNTAS_PARTIDA-1.png-83c91a60d897ca0bdf6f9a5daf42d812.ctex"]
 
 [params]
 

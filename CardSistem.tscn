@@ -1,103 +1,164 @@
-[gd_scene load_steps=14 format=3 uid="uid://ofcrdkqmg87e"]
+[gd_scene load_steps=15 format=3 uid="uid://ofcrdkqmg87e"]
 
-[ext_resource type="Script" path="res://CardSistem.gd" id="1_lo8wo"]
-[ext_resource type="Script" path="res://testScript.gd" id="2_hj4rq"]
-[ext_resource type="Texture2D" uid="uid://dvbwaj8qa3rap" path="res://Assets/Visuals/image.png" id="3_4v3l4"]
-[ext_resource type="Texture2D" uid="uid://djlwtkiokam5b" path="res://Assets/Visuals/Screenshot 2024-01-27 160342.png" id="4_i2gek"]
-[ext_resource type="Script" path="res://Director.gd" id="5_3e8tg"]
+[ext_resource type="Script" path="res://Scripts/CardSistem.gd" id="1_lo8wo"]
+[ext_resource type="Texture2D" uid="uid://dssemie0ctvqu" path="res://Assets/Visuals/FONDO_PARTIDA.png" id="2_1wdam"]
+[ext_resource type="Script" path="res://Scripts/testScript.gd" id="2_hj4rq"]
+[ext_resource type="Script" path="res://Scripts/Director.gd" id="5_3e8tg"]
+[ext_resource type="Texture2D" uid="uid://b7w27v7er2hpl" path="res://Assets/Visuals/MARCO_BUFÓN_PARTIDA.png" id="5_pf4d4"]
+[ext_resource type="Texture2D" uid="uid://buqelnwdb6s8t" path="res://Assets/Visuals/TABLA_DE_OPCIONES_INICIO.png" id="6_4kjrb"]
+[ext_resource type="Texture2D" uid="uid://mp3roa5ieown" path="res://Assets/Visuals/MARCO_REY_PARTIDA-APROBACIÓN.png" id="7_85aaj"]
+[ext_resource type="Texture2D" uid="uid://cqpmft8mdoyop" path="res://Assets/Visuals/MARCO_PREGUNTAS_PARTIDA-1.png" id="8_ewdr3"]
+[ext_resource type="FontFile" uid="uid://dv2jqif6rj6fj" path="res://Assets/BLKCHCRY.TTF" id="9_opy43"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5s88r"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_rx31m"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ifrcs"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y30fm"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_vdpc1"]
-
 [sub_resource type="QuadMesh" id="QuadMesh_rqm2w"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_w4ur5"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_6txbb"]
-
-[node name="CardHandlingSistem" type="Node2D"]
+[node name="CardHandlingSistem" type="Node"]
 script = ExtResource("1_lo8wo")
 
 [node name="Background" type="MeshInstance2D" parent="."]
-modulate = Color(0.447059, 0.556863, 0.184314, 1)
-self_modulate = Color(0.588235, 0.423529, 0.192157, 1)
 texture_filter = 1
 position = Vector2(640, 360)
-scale = Vector2(1280, 720)
+scale = Vector2(1280, -720)
 mesh = SubResource("QuadMesh_5s88r")
-texture = SubResource("ImageTexture_rx31m")
+texture = ExtResource("2_1wdam")
 script = ExtResource("2_hj4rq")
-
-[node name="Card_table" type="MeshInstance2D" parent="."]
-position = Vector2(646, 565)
-rotation = 3.14159
-scale = Vector2(-959.5, 234)
-mesh = SubResource("QuadMesh_ifrcs")
-texture = ExtResource("3_4v3l4")
-
-[node name="Card" type="MeshInstance2D" parent="Card_table"]
-modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-self_modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-position = Vector2(-0.191767, -0.00427372)
-scale = Vector2(0.140698, 0.720086)
-mesh = SubResource("QuadMesh_y30fm")
-texture = SubResource("ImageTexture_vdpc1")
-
-[node name="Card2" type="MeshInstance2D" parent="Card_table"]
-modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-self_modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-position = Vector2(-0.014591, -0.0170937)
-scale = Vector2(0.140698, 0.720086)
-mesh = SubResource("QuadMesh_y30fm")
-texture = SubResource("ImageTexture_vdpc1")
-
-[node name="Card3" type="MeshInstance2D" parent="Card_table"]
-modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-self_modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-position = Vector2(0.1605, -0.0128202)
-scale = Vector2(0.140698, 0.720086)
-mesh = SubResource("QuadMesh_y30fm")
-texture = SubResource("ImageTexture_vdpc1")
-
-[node name="Card4" type="MeshInstance2D" parent="Card_table"]
-modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-self_modulate = Color(0.00392157, 0.384314, 0.345098, 1)
-position = Vector2(0.335591, -0.0427347)
-scale = Vector2(0.140698, 0.720086)
-mesh = SubResource("QuadMesh_y30fm")
-texture = SubResource("ImageTexture_vdpc1")
-
-[node name="Actors_expresions" type="Node2D" parent="."]
-
-[node name="Face" type="MeshInstance2D" parent="Actors_expresions"]
-position = Vector2(962, 234)
-rotation = 3.14159
-scale = Vector2(-313.295, 348.971)
-mesh = SubResource("QuadMesh_rqm2w")
-texture = ExtResource("4_i2gek")
-
-[node name="Spech_sistem" type="Node2D" parent="Actors_expresions"]
-
-[node name="Spech_bg" type="MeshInstance2D" parent="Actors_expresions/Spech_sistem"]
-position = Vector2(465.75, 228.25)
-scale = Vector2(601.5, 348.5)
-mesh = SubResource("QuadMesh_w4ur5")
-texture = SubResource("ImageTexture_6txbb")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Actors_expresions/Spech_sistem"]
-offset_left = 184.5
-offset_top = 72.5
-offset_right = 758.5
-offset_bottom = 386.5
-text = "Lorem ipsum dolor sit amet, consectetur ___________, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ___________ in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-metadata/_edit_use_anchors_ = true
 
 [node name="Director" type="Node" parent="."]
 script = ExtResource("5_3e8tg")
+
+[node name="Table" type="Node" parent="Director"]
+
+[node name="Card_tableBG" type="MeshInstance2D" parent="Director/Table"]
+position = Vector2(640, 360)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_ifrcs")
+texture = ExtResource("5_pf4d4")
+
+[node name="Carta" type="Node2D" parent="Director/Table"]
+position = Vector2(400, 525)
+
+[node name="Card" type="MeshInstance2D" parent="Director/Table/Carta"]
+position = Vector2(2, 125)
+scale = Vector2(884.447, -720)
+mesh = SubResource("QuadMesh_y30fm")
+texture = ExtResource("6_4kjrb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Director/Table/Carta"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -72.0
+offset_right = 83.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "
+[center]voluptate[/center] "
+tab_size = 5
+
+[node name="Carta2" type="Node2D" parent="Director/Table"]
+position = Vector2(622, 530)
+
+[node name="Card2" type="MeshInstance2D" parent="Director/Table/Carta2"]
+position = Vector2(19, 121)
+scale = Vector2(884.447, -720)
+mesh = SubResource("QuadMesh_y30fm")
+texture = ExtResource("6_4kjrb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Director/Table/Carta2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -72.0
+offset_right = 83.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "
+[center]The game[/center] "
+tab_size = 5
+
+[node name="Carta3" type="Node2D" parent="Director/Table"]
+position = Vector2(835, 529)
+
+[node name="Card" type="MeshInstance2D" parent="Director/Table/Carta3"]
+position = Vector2(44, 122)
+scale = Vector2(884.447, -720)
+mesh = SubResource("QuadMesh_y30fm")
+texture = ExtResource("6_4kjrb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Director/Table/Carta3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -62.0
+offset_right = 84.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "
+[center]42[/center] "
+tab_size = 5
+
+[node name="Mood_System" type="Node" parent="Director"]
+
+[node name="Face" type="MeshInstance2D" parent="Director/Mood_System"]
+position = Vector2(642.414, 363.543)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_rqm2w")
+texture = ExtResource("7_85aaj")
+
+[node name="Spech_sistem" type="Node" parent="Director/Mood_System"]
+
+[node name="Spech_bg" type="MeshInstance2D" parent="Director/Mood_System/Spech_sistem"]
+position = Vector2(640, 360)
+scale = Vector2(1280, -720)
+mesh = SubResource("QuadMesh_w4ur5")
+texture = ExtResource("8_ewdr3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Director/Mood_System/Spech_sistem"]
+anchors_preset = -1
+anchor_left = 0.143
+anchor_top = 0.079
+anchor_right = 0.584
+anchor_bottom = 0.536389
+offset_left = 64.96
+offset_top = 31.12
+offset_right = -69.5201
+offset_bottom = -41.2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_opy43")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Lorem ipsum dolor sit amet, consectetur___________,[/center]"
+tab_size = 5
+metadata/_edit_use_anchors_ = true

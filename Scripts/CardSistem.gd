@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 #export var mesh_path
 var mesh_instance

@@ -1,6 +1,19 @@
 extends Node
 
-@export var playerIsSelectingCards = true
+var playerIsSelectingCards = true
+
+var posible_phrases = [
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#select la frase
