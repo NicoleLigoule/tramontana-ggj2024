@@ -16,9 +16,12 @@ var posible_phrases = [
 	["","","",""],
 	["","","",""],
 ]
+var current_phrase_index = 0
+var player_score = 5 #hardcoding
+@onready var mood_system = get_node("Mood_System")
 
 func setTextAndProceed():
-	#mood_node.settext(posible_phrases[phrIt][0])
+	mood_system.setText(posible_phrases[phrIt][0])
 	table_node.setCardsTexts(posible_phrases[phrIt])
 	phrIt += 1
 	pass
@@ -58,11 +61,15 @@ func checkScore():
 	
 	pass
 	
-func updateKingState(puntos):
-	
-	#tunodo.updateetc(puntos)
+func updateKingState(puntos: int) -> void:
+	print("Puntos obtenidos: ", puntos)
+	if mood_system != null:
+		mood_system._on_updateData(puntos)
+		print("conexion exitosa")
+	else:
+		print("Error:'Mood_System' no encontrado.")
 	pass
-	
+
 func timerRunOut():
 	return timer_node.time_left > 0 and not timer_node.paused
 
@@ -77,3 +84,8 @@ func play():
 	
 	
 	pass
+
+func _on_PlayerCompletedPhrase():
+	checkCards()
+	checkScore()
+	updateKingState(2) #hardcoding

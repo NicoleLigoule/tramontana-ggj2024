@@ -2,7 +2,7 @@ extends Node
 
 var node
 var ratio
-var mood : int = 1
+var mood : int = 7 #esto tiene que setearse solo por los puntos del juego  #hardcoding
 var angry_face: MeshInstance2D
 var happy_face: MeshInstance2D
 var slight_smile : RichTextLabel
@@ -12,7 +12,7 @@ var smile : RichTextLabel
 func _ready():
 	node = get_node("Speech_system/RichTextLabel")
 	node.visible_ratio = 0
-	ratio= self.get_meta("ratio_visible_text")
+	ratio = self.get_meta("ratio_visible_text")
 	
 	angry_face = $angry_face
 	happy_face = $happy_face
@@ -60,7 +60,6 @@ func set_mood(new_mood : int) -> void:
 	mood = clamp(new_mood, 1, 10)
 	print("Mood actualizado a:", mood)
 
-
 func get_mood() -> int:
 	return mood
 	
@@ -76,3 +75,14 @@ func mood_determinate(mood_param) -> int:
 		else:
 			print("Valor de mood fuera de rango")
 	return mood_param
+
+func _on_updateData(puntos: int) -> void:
+	# datos actualizados
+	print("Datos actualizados en Mood_System:", puntos)
+	pass
+
+func setText(texto):
+	node.clear()
+	node.append_text('the game')
+	node.visible_ratio = 0
+	pass
