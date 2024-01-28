@@ -184,6 +184,9 @@ text = "[center]Lorem ipsum dolor sit amet, consectetur___________,[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="Director/Table/Carta/Card" to="Director" method="_button_pressed"]
 [connection signal="pressed" from="Director/Table/Carta/Card" to="Director/Table" method="_on_card_pressed"]
+[connection signal="pressed" from="Director/Table/Carta2/Card2" to="Director" method="_button_pressed"]
 [connection signal="pressed" from="Director/Table/Carta2/Card2" to="Director/Table" method="_on_card_2_pressed"]
-[connection signal="pressed" from="Director/Table/Carta3/Card3" to="Director/Table" method="_on_card_2_pressed"]
+[connection signal="pressed" from="Director/Table/Carta3/Card3" to="Director" method="_button_pressed"]
+[connection signal="pressed" from="Director/Table/Carta3/Card3" to="Director/Table" method="_on_card_3_pressed"]

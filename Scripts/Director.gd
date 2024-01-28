@@ -33,7 +33,9 @@ func _ready():
 	timer_node = get_node("Timer")
 	
 	#mostrar las cartas-opciones para completar
-	play()
+	timer_node.start()
+	print(timer_node.time_left)
+	print(timerRunOut())
 	pass # Replace with function body.
 
 
@@ -43,23 +45,13 @@ func _process(delta):
 	pass
 
 func checkCards():
-	#if table_node.button_pressed != -1:
-		#
-		#print(table_node.button_pressed)
-		#table_node.button_pressed = -1
-		
 	return table_node.getPointsForButton()	
 	pass
 	
 	
 func didPlayerLose()->bool:
 	#this will check lives and will determine if we lose
-	return true
-	
-func checkScore():
-	
-	
-	pass
+	return false
 	
 func updateKingState(puntos: int) -> void:
 	print("Puntos obtenidos: ", puntos)
@@ -71,21 +63,13 @@ func updateKingState(puntos: int) -> void:
 	pass
 
 func timerRunOut():
-	return timer_node.time_left > 0 and not timer_node.paused
+	return not timer_node.time_left > 0 and not timer_node.paused
 
-func play():
-	timer_node.start()
-	while not didPlayerLose() and not timerRunOut() :
-		var puntos = checkCards()
-		if  puntos != 0 :
+
+func _button_pressed():
+	print("botton presionado")
+	var puntos = checkCards()
+	if  puntos != 0 :
 			updateKingState(puntos)
 			setTextAndProceed()
-			pass
-	
-	
-	pass
-
-func _on_PlayerCompletedPhrase():
-	checkCards()
-	checkScore()
-	updateKingState(2) #hardcoding
+	pass # Replace with function body.

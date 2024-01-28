@@ -7,7 +7,7 @@ var angry_face: MeshInstance2D
 var happy_face: MeshInstance2D
 var slight_smile : RichTextLabel
 var smile : RichTextLabel
-
+var vidas = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	node = get_node("Speech_system/RichTextLabel")
@@ -65,18 +65,19 @@ func get_mood() -> int:
 	
 
 func mood_determinate(mood_param) -> int:
-	while true:
-		if mood_param <= 3:
-			print("enojado")
-		elif mood_param <= 6:
-			print("neutral")
-		elif mood_param <= 10:
-			print("happy")
-		else:
-			print("Valor de mood fuera de rango")
+	if mood_param <= 3:
+		print("enojado")
+	elif mood_param <= 6:
+		print("neutral")
+	elif mood_param <= 10:
+		print("happy")
+	else:
+		print("Valor de mood fuera de rango")
 	return mood_param
 
 func _on_updateData(puntos: int) -> void:
+	set_mood(mood + puntos)
+	update_mood_visuals()
 	# datos actualizados
 	print("Datos actualizados en Mood_System:", puntos)
 	pass
