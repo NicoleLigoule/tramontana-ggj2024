@@ -7,9 +7,9 @@ const button_pos1 = 0
 const button_pos2 = 0
 const button_pos3 = 0
 
+var button_pressed = -1
 
-
-
+var puntajes = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,9 +26,30 @@ func setCardsTexts(textsArr):
 	card2.text = textsArr[2]
 	card3.text = textsArr[3]
 	
+	button_pressed = -1
 	pass
+
+func getPointsForButton()-> int:
+	
+	return 1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+
+
+func _on_card_pressed():
+	button_pressed = 1
+	pass # Replace with function body.
+
+
+func _on_card_2_pressed():
+	button_pressed = 2
+	pass # Replace with function body.
+	
+	
+func _on_card_3_pressed():
+	button_pressed = 3
+	pass # Replace with function body.

@@ -43,6 +43,11 @@ script = SubResource("GDScript_3uno3")
 [node name="Director" type="Node" parent="."]
 script = ExtResource("5_3e8tg")
 
+[node name="Timer" type="Timer" parent="Director"]
+process_callback = 0
+wait_time = 120.0
+one_shot = true
+
 [node name="Table" type="Node" parent="Director"]
 script = ExtResource("4_kymkh")
 
@@ -53,7 +58,7 @@ mesh = SubResource("QuadMesh_ifrcs")
 texture = ExtResource("5_pf4d4")
 
 [node name="Carta" type="Node2D" parent="Director/Table"]
-position = Vector2(334, 514)
+position = Vector2(334, 520)
 
 [node name="Card" type="Button" parent="Director/Table/Carta"]
 anchors_preset = 8
@@ -89,15 +94,23 @@ theme = ExtResource("6_b3itw")
 text = "The game"
 
 [node name="Carta3" type="Node2D" parent="Director/Table"]
-position = Vector2(796, 490)
+position = Vector2(796, 520)
 
 [node name="Card3" type="Button" parent="Director/Table/Carta3"]
-clip_contents = true
-layout_direction = 1
-offset_top = -1.0
-offset_right = 22.0
-offset_bottom = 30.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 84.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme = ExtResource("6_b3itw")
-text = "42"
-icon_alignment = 1
-expand_icon = true
+text = "The game"
+
+[connection signal="pressed" from="Director/Table/Carta/Card" to="Director/Table" method="_on_card_pressed"]
+[connection signal="pressed" from="Director/Table/Carta2/Card2" to="Director/Table" method="_on_card_2_pressed"]
+[connection signal="pressed" from="Director/Table/Carta3/Card3" to="Director/Table" method="_on_card_2_pressed"]
