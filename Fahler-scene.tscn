@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ofcrdkqmg87e"]
+[gd_scene load_steps=10 format=3 uid="uid://ofcrdkqmg87e"]
 
 [ext_resource type="Script" path="res://Scripts/CardSistem.gd" id="1_lo8wo"]
 [ext_resource type="Texture2D" uid="uid://dssemie0ctvqu" path="res://Assets/Visuals/FONDO_PARTIDA.png" id="2_1wdam"]
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="4_kymkh"]
 [ext_resource type="Script" path="res://Scripts/Director.gd" id="5_3e8tg"]
 [ext_resource type="Texture2D" uid="uid://b7w27v7er2hpl" path="res://Assets/Visuals/MARCO_BUFÓN_PARTIDA.png" id="5_pf4d4"]
-[ext_resource type="Texture2D" uid="uid://ctfkr8gtk4hvw" path="res://Assets/Visuals/edited-TABLA_DE_OPCIONES_INICIO.png" id="6_nhw2y"]
-[ext_resource type="FontFile" uid="uid://dv2jqif6rj6fj" path="res://Assets/BLKCHCRY.TTF" id="9_opy43"]
+[ext_resource type="Theme" uid="uid://bujw6y5xqklmq" path="res://Themes/Button_theme.tres" id="6_b3itw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5s88r"]
 
@@ -29,8 +28,6 @@ func _process(delta):
 "
 
 [sub_resource type="QuadMesh" id="QuadMesh_ifrcs"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_y30fm"]
 
 [node name="CardHandlingSistem" type="Node"]
 script = ExtResource("1_lo8wo")
@@ -56,86 +53,51 @@ mesh = SubResource("QuadMesh_ifrcs")
 texture = ExtResource("5_pf4d4")
 
 [node name="Carta" type="Node2D" parent="Director/Table"]
-position = Vector2(400, 525)
+position = Vector2(334, 514)
 
-[node name="Card" type="MeshInstance2D" parent="Director/Table/Carta"]
-scale = Vector2(200, -80)
-mesh = SubResource("QuadMesh_y30fm")
-texture = ExtResource("6_nhw2y")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Director/Table/Carta"]
+[node name="Card" type="Button" parent="Director/Table/Carta"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -82.0
-offset_top = -72.0
 offset_right = 83.0
-offset_bottom = 70.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/normal_font_size = 28
-bbcode_enabled = true
-text = "
-[center]voluptate[/center] "
-tab_size = 5
+theme = ExtResource("6_b3itw")
+text = "voluptate"
 
 [node name="Carta2" type="Node2D" parent="Director/Table"]
-position = Vector2(622, 530)
+position = Vector2(584, 520)
 
-[node name="Card" type="MeshInstance2D" parent="Director/Table/Carta2"]
-scale = Vector2(200, -80)
-mesh = SubResource("QuadMesh_y30fm")
-texture = ExtResource("6_nhw2y")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Director/Table/Carta2"]
+[node name="Card2" type="Button" parent="Director/Table/Carta2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -82.0
-offset_top = -72.0
-offset_right = 83.0
-offset_bottom = 70.0
+offset_right = 84.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/normal_font_size = 28
-bbcode_enabled = true
-text = "
-[center]The game[/center] "
-tab_size = 5
+theme = ExtResource("6_b3itw")
+text = "The game"
 
 [node name="Carta3" type="Node2D" parent="Director/Table"]
-position = Vector2(907, 533)
+position = Vector2(796, 490)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Director/Table/Carta3"]
-offset_left = -134.0
-offset_top = -37.0
-offset_right = 95.0
-offset_bottom = 53.0
-texture = ExtResource("6_nhw2y")
-patch_margin_left = 30
-patch_margin_top = 10
-patch_margin_right = 30
-patch_margin_bottom = 10
-
-[node name="Card" type="Button" parent="Director/Table/Carta3"]
+[node name="Card3" type="Button" parent="Director/Table/Carta3"]
 clip_contents = true
 layout_direction = 1
-offset_left = -116.0
-offset_top = -32.0
-offset_right = 96.0
-offset_bottom = 46.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_opy43")
-theme_override_font_sizes/font_size = 22
+offset_top = -1.0
+offset_right = 22.0
+offset_bottom = 30.0
+theme = ExtResource("6_b3itw")
 text = "42"
-flat = true
 icon_alignment = 1
 expand_icon = true
