@@ -147,17 +147,6 @@ theme_override_font_sizes/normal_font_size = 26
 text = "
 😆"
 
-[node name="slight_smile" type="RichTextLabel" parent="Director/Mood_System"]
-offset_left = 825.0
-offset_top = 118.0
-offset_right = 888.0
-offset_bottom = 184.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 26
-text = "
-🙂"
-
 [node name="Speech_system" type="Node" parent="Director/Mood_System"]
 
 [node name="Speech_bg" type="MeshInstance2D" parent="Director/Mood_System/Speech_system"]

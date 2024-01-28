@@ -2,10 +2,9 @@ extends Node
 
 var node
 var ratio
-var mood : int = 7 #esto tiene que setearse solo por los puntos del juego  #hardcoding
+var mood : int = 5 #esto esta seteado en 5 porque asi comienza en neutral
 var angry_face: MeshInstance2D
 var happy_face: MeshInstance2D
-var slight_smile : RichTextLabel
 var smile : RichTextLabel
 var vidas = 3
 # Called when the node enters the scene tree for the first time.
@@ -16,12 +15,8 @@ func _ready():
 	
 	angry_face = $angry_face
 	happy_face = $happy_face
-	slight_smile = get_node("slight_smile")
 	smile = get_node("smile")
 
-	
-	if slight_smile == null:
-		print("Error: Nodo confused_label no encontrado.")
 	if smile == null:
 		print("Error: Nodo smile_label no encontrado.")
 	update_mood_visuals()
@@ -37,22 +32,16 @@ func update_mood_visuals() -> void:
 	if mood <= 3:
 		angry_face.texture = load(image_path + "NEGACIÓN.png")
 		happy_face.hide()
-		if slight_smile != null:
-			slight_smile.hide()
 		if smile != null:
 			smile.hide()
 	elif mood <= 6:
-		happy_face.texture = load(image_path + "APROBACIÓN.png")
+		happy_face.texture = load(image_path + "NEUTRAL.png")
 		angry_face.hide()
-		if slight_smile != null:
-			slight_smile.show()
 		if smile != null:
 			smile.hide()
 	elif  mood <= 10:
 		happy_face.texture = load(image_path + "APROBACIÓN.png")
 		angry_face.hide()
-		if slight_smile != null:
-			slight_smile.hide()
 		if smile != null:
 			smile.show()
 
@@ -84,6 +73,6 @@ func _on_updateData(puntos: int) -> void:
 
 func setText(texto):
 	node.clear()
-	node.append_text('the game')
+	node.append_text(texto)
 	node.visible_ratio = 0
 	pass
