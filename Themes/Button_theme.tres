@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bujw6y5xqklmq"]
+
+[ext_resource type="FontFile" uid="uid://dv2jqif6rj6fj" path="res://Assets/BLKCHCRY.TTF" id="1_d4hb2"]
+[ext_resource type="Texture2D" uid="uid://ctfkr8gtk4hvw" path="res://Assets/Visuals/edited-TABLA_DE_OPCIONES_INICIO.png" id="2_vl7no"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p33ih"]
+texture = ExtResource("2_vl7no")
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_d4hb2")
+Button/styles/disabled = SubResource("StyleBoxTexture_p33ih")
+Button/styles/focus = SubResource("StyleBoxTexture_p33ih")
+Button/styles/hover = SubResource("StyleBoxTexture_p33ih")
+Button/styles/normal = SubResource("StyleBoxTexture_p33ih")
+Button/styles/pressed = SubResource("StyleBoxTexture_p33ih")
